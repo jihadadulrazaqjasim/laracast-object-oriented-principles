@@ -1,0 +1,20 @@
+{
+    "name": "jihad/phppractice",
+    "description": "This is laracast object oriented principles course",
+    "license": "0.1",
+    "autoload": {
+        "psr-4": {
+            "ObjectOrientedPrinciples\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jihad Abdulrazaq",
+            "email": "jihad.abdulrazaq@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.4"
+    }
+}
+
