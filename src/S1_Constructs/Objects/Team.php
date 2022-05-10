@@ -1,6 +1,6 @@
 <?php
 
-namespace ObjectOrientedPrinciples\Constructs;
+namespace ObjectOrientedPrinciples\S1_Constructs\Objects;
 
 class Team
 {
@@ -16,7 +16,7 @@ class Team
     {
         return new static(...$params);
     }
-    
+
     public function name()
     {
         return $this->name;
