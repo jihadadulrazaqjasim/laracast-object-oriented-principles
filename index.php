@@ -1,12 +1,16 @@
 <?php
 
-use ObjectOrientedPrinciples\S1_Constructs\Objects\Team;
-use ObjectOrientedPrinciples\S1_Constructs\Composition\{Subscription, StripeGateway, BrainTreeGateway};
-use ObjectOrientedPrinciples\S1_Constructs\ValueObjectsAndMutability\Age;
-use ObjectOrientedPrinciples\S1_Constructs\ValueObjectsAndMutability\Coordinates;
-use ObjectOrientedPrinciples\S1_Constructs\Exceptions\{TeamMemberController, Member};
+// use ObjectOrientedPrinciples\S1_Constructs\Objects\Team;
+// use ObjectOrientedPrinciples\S1_Constructs\Composition\{Subscription, StripeGateway, BrainTreeGateway};
+// use ObjectOrientedPrinciples\S1_Constructs\ValueObjectsAndMutability\Age;
+// use ObjectOrientedPrinciples\S1_Constructs\ValueObjectsAndMutability\Coordinates;
+// use ObjectOrientedPrinciples\S1_Constructs\Exceptions\{TeamMemberController, Member};
 
-use ObjectOrientedPrinciples\SimpleRulesForSimplerCode\{BankAccounts, Account};
+// use ObjectOrientedPrinciples\SimpleRulesForSimplerCode\OneLevelIndentation\{BankAccounts, Account};
+
+use ObjectOrientedPrinciples\SimpleRulesForSimplerCode\ValueObjects\TimeLength;
+use ObjectOrientedPrinciples\SimpleRulesForSimplerCode\ValueObjects\Weight;
+use ObjectOrientedPrinciples\SimpleRulesForSimplerCode\ValueObjects\WorkoutPlaceMember;
 
 
 require_once  'vendor/autoload.php';
@@ -52,16 +56,28 @@ require_once  'vendor/autoload.php';
 // $teamMember = new TeamMemberController();
 // $teamMember->store();
 
-$accounts = [
-    Account::open('checking'),
-    Account::open('savings'),
-    Account::open('checking'),
-    Account::open('savings'),
-    Account::open('savings')
-];
 
-$bankacount = new BankAccounts($accounts);
+/* SimpleRulesForSimplerCode - OneLevelIndentation */
 
-$checking = $bankacount->filterBy('savings');
+// $accounts = [
+//     Account::open('checking'),
+//     Account::open('savings'),
+//     Account::open('checking'),
+//     Account::open('savings'),
+//     Account::open('savings')
+// ];
 
-var_dump($checking);
+// $bankacount = new BankAccounts($accounts);
+
+// $checking = $bankacount->filterBy('savings');
+
+// var_dump($checking);
+
+
+/* SimpleRulesForSimplerCode -  ValueObjects*/
+
+$jihad = new WorkoutPlaceMember('Jihad', new Weight(40));
+
+$jihad->workoutFor(TimeLength::fromMinutes(30));
+
+echo $jihad->weight();

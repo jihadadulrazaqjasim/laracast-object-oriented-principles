@@ -1,6 +1,6 @@
 <?php
 
-namespace ObjectOrientedPrinciples\SimpleRulesForSimplerCode;
+namespace ObjectOrientedPrinciples\SimpleRulesForSimplerCode\OneLevelIndentation;
 
 class BankAccounts
 {
