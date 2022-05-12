@@ -4,7 +4,10 @@ use ObjectOrientedPrinciples\S1_Constructs\Objects\Team;
 use ObjectOrientedPrinciples\S1_Constructs\Composition\{Subscription, StripeGateway, BrainTreeGateway};
 use ObjectOrientedPrinciples\S1_Constructs\ValueObjectsAndMutability\Age;
 use ObjectOrientedPrinciples\S1_Constructs\ValueObjectsAndMutability\Coordinates;
-use ObjectOrientedPrinciples\S1_Constructs\Exceptions\{TeamMemberController,Member};
+use ObjectOrientedPrinciples\S1_Constructs\Exceptions\{TeamMemberController, Member};
+
+use ObjectOrientedPrinciples\SimpleRulesForSimplerCode\{BankAccounts, Account};
+
 
 require_once  'vendor/autoload.php';
 
@@ -44,6 +47,21 @@ require_once  'vendor/autoload.php';
 // $end = new Coordinates(3,6);
 // Coordinates::distance($begin,$end);
 
-$teamMember = new TeamMemberController();
+/* Exception */
 
-$teamMember->store();
+// $teamMember = new TeamMemberController();
+// $teamMember->store();
+
+$accounts = [
+    Account::open('checking'),
+    Account::open('savings'),
+    Account::open('checking'),
+    Account::open('savings'),
+    Account::open('savings')
+];
+
+$bankacount = new BankAccounts($accounts);
+
+$checking = $bankacount->filterBy('savings');
+
+var_dump($checking);
